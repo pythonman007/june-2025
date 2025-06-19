@@ -1,0 +1,20 @@
+class Solution:
+    # Function to return Breadth First Search Traversal of given graph.
+    def bfs(self, adjList):
+        # code here
+        v = len(adjList) # number of nodes 
+        startNode = 0 
+        visited = [0]*v 
+        queue = [] 
+        ans = [] 
+        if(visited[startNode]==0):
+            visited[startNode]=1 
+            queue.append(startNode) 
+            while(len(queue)>0):
+                popNode = queue.pop(0) 
+                for i in adjList[popNode]:
+                    if(visited[i]==0):
+                        visited[i]=1 
+                        queue.append(i) 
+                ans.append(popNode) 
+            return ans 
