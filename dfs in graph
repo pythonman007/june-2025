@@ -1,0 +1,19 @@
+class Solution:
+    def depthFirstSearch(self,startNode,visited,ans,adj):
+        ans.append(startNode) 
+        for i in adj[startNode]:
+            if(visited[i]==0):
+                visited[i]=1 
+                self.depthFirstSearch(i,visited,ans,adj)
+    #Function to return a list containing the DFS traversal of the graph.
+    def dfs(self, adj):
+        # code here 
+        v = len(adj) 
+        visited = [0]*v 
+        ans = [] 
+        startNode = 0 
+        if(visited[startNode]==0):
+            visited[startNode]=1 
+            self.depthFirstSearch(startNode,visited,ans,adj)
+        return ans
+        
